@@ -2,4 +2,15 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Dimensiones separadores -->
+    <dimen name="separador_corto">5dp</dimen>
+    <dimen name="separador_largo">20dp</dimen>
+
+    <!-- Dimensiones Texto -->
+    <dimen name="texto_grande">15dp</dimen>
+
+    <!-- Dimensiones Spinners -->
+    <dimen name="spinners_dimen">235dp</dimen>
+    <dimen name="spinner_ancho">35dp</dimen>
 </resources>
