@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Almacenes GDO</string>
+    <string name="title_activity_menu">MainActivity</string>
+    <string name="title_home">Traspasos</string>
+    <string name="title_dashboard">Inventarios</string>
+    <string name="title_notifications">Compras</string>
+
+    <!-- Texto Login -->
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+
+    <!-- Texto Traspasos -->
+    <string name="almacen_origen">Almacen Origen</string>
+    <string name="almacen_destino">Almacen Destino</string>
+
+    <!-- Texto Global -->
+    <string name="codigo">Codigo</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="unidad">Unidad</string>
+    <string name="tipo_busqueda">Busqueda por descripcion</string>
+
+</resources>
