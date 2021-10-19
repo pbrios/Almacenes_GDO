@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnListaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
+        android:clickable="true"
+        android:src="@drawable/ic_paste_search_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGuardarT" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -18,6 +30,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Spinner
+            android:id="@+id/spAlmacenOT"
+            android:layout_width="@dimen/spinners_dimen"
+            android:layout_height="@dimen/spinner_ancho"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -25,16 +44,9 @@
             android:text="@string/almacen_origen"
             android:textSize="@dimen/texto_grande"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/spAlmacenO"
+            app:layout_constraintBottom_toBottomOf="@+id/spAlmacenOT"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spAlmacenO" />
-
-        <Spinner
-            android:id="@+id/spAlmacenO"
-            android:layout_width="@dimen/spinners_dimen"
-            android:layout_height="@dimen/spinner_ancho"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/spAlmacenOT" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -43,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/separador_largo"
         android:layout_marginLeft="@dimen/separador_largo"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/separador_largo"
         android:layout_marginEnd="@dimen/separador_largo"
         android:layout_marginRight="@dimen/separador_largo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,23 +81,10 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <CheckBox
-        android:id="@+id/cbTipoBusqueda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/separador_largo"
-        android:layout_marginLeft="@dimen/separador_largo"
-        android:layout_marginTop="@dimen/separador_largo"
-        android:text="@string/tipo_busqueda"
-        android:textSize="@dimen/texto_grande"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/lBusqueda"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginStart="@dimen/separador_largo"
         android:layout_marginLeft="@dimen/separador_largo"
         android:layout_marginTop="@dimen/separador_largo"
@@ -93,44 +92,25 @@
         android:layout_marginRight="@dimen/separador_largo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbTipoBusqueda">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
-        <EditText
-            android:id="@+id/edtCodigo"
-            android:layout_width="@dimen/spinners_dimen"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/codigo"
-            android:inputType="textPersonName"
-            android:textSize="@dimen/texto_grande"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/btnCamara"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/separador_corto"
-            android:layout_marginLeft="@dimen/separador_corto"
-            android:src="@drawable/ic__camera_24"
-            app:layout_constraintBottom_toBottomOf="@+id/edtCodigo"
-            app:layout_constraintStart_toEndOf="@+id/edtCodigo"
-            app:layout_constraintTop_toTopOf="@+id/edtCodigo" />
-
-        <ImageButton
-            android:id="@+id/btnBusqueda"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/separador_corto"
-            android:layout_marginLeft="@dimen/separador_corto"
-            android:src="@drawable/ic_manage_search_24"
-            app:layout_constraintBottom_toBottomOf="@+id/btnCamara"
-            app:layout_constraintStart_toEndOf="@+id/btnCamara"
-            app:layout_constraintTop_toTopOf="@+id/btnCamara" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/txtDescripcion"
+        android:id="@+id/txtCodigoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginTop="@dimen/separador_corto"
+        android:hint="@string/codigo"
+        android:textSize="@dimen/texto_grande"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lBusqueda" />
+
+    <TextView
+        android:id="@+id/txtDescripcionT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/separador_largo"
@@ -140,7 +120,7 @@
         android:textSize="@dimen/texto_grande"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCodigoT" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
@@ -153,21 +133,22 @@
         android:layout_marginRight="@dimen/separador_largo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion">
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcionT">
 
         <EditText
-            android:id="@+id/edtCantidad"
-            android:layout_width="@dimen/spinners_dimen"
+            android:id="@+id/edtCantidadT"
+            android:layout_width="@dimen/edt"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/cantidad"
             android:inputType="textPersonName"
             android:textSize="@dimen/texto_grande"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtUnidad"
+            android:id="@+id/txtUnidadT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/separador_corto"
@@ -175,13 +156,13 @@
             android:hint="@string/unidad"
             android:textSize="@dimen/texto_grande"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/edtCantidad"
-            app:layout_constraintStart_toEndOf="@+id/edtCantidad"
-            app:layout_constraintTop_toTopOf="@+id/edtCantidad" />
+            app:layout_constraintBottom_toBottomOf="@+id/edtCantidadT"
+            app:layout_constraintStart_toEndOf="@+id/edtCantidadT"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnGuardarT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/separador_largo"
@@ -190,15 +171,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnLista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="@dimen/separador_largo"
-        android:layout_marginRight="@dimen/separador_largo"
-        android:clickable="true"
-        android:src="@drawable/ic_paste_search_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

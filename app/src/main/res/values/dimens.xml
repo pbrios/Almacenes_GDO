@@ -13,4 +13,5 @@
     <!-- Dimensiones Spinners -->
     <dimen name="spinners_dimen">235dp</dimen>
     <dimen name="spinner_ancho">35dp</dimen>
+    <dimen name="edt">200dp</dimen>
 </resources>

@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox
+        android:id="@+id/chTipoBusqueda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tipo_busqueda"
+        android:textSize="@dimen/texto_grande"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/separador_corto"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chTipoBusqueda">
+
+        <EditText
+            android:id="@+id/edtCodigo"
+            android:layout_width="@dimen/edt"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/codigo"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/texto_grande"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnCamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/separador_corto"
+            android:layout_marginLeft="@dimen/separador_corto"
+            app:layout_constraintBottom_toBottomOf="@+id/edtCodigo"
+            app:layout_constraintStart_toEndOf="@+id/edtCodigo"
+            app:layout_constraintTop_toTopOf="@+id/edtCodigo"
+            app:srcCompat="@drawable/ic__camera_24" />
+
+        <ImageButton
+            android:id="@+id/btnBusqueda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/separador_corto"
+            android:layout_marginLeft="@dimen/separador_corto"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCamara"
+            app:layout_constraintStart_toEndOf="@+id/btnCamara"
+            app:layout_constraintTop_toTopOf="@+id/btnCamara"
+            app:srcCompat="@drawable/ic_manage_search_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,17 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-    <TextView
-        android:id="@+id/text_dashboard"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/estante"
+            android:textSize="@dimen/texto_grande"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/spEstante"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/spEstante" />
+
+        <Spinner
+            android:id="@+id/spEstante"
+            android:layout_width="@dimen/spinners_dimen"
+            android:layout_height="@dimen/spinner_ancho"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lInventario"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginTop="@dimen/separador_largo"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/txtCodigoI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginTop="@dimen/separador_corto"
+        android:hint="@string/codigo"
+        android:textSize="@dimen/texto_grande"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lInventario" />
+
+    <TextView
+        android:id="@+id/txtDescripcionI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginTop="@dimen/separador_largo"
+        android:hint="@string/descripcion"
+        android:textSize="@dimen/texto_grande"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCodigoI" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/separador_largo"
+        android:layout_marginLeft="@dimen/separador_largo"
+        android:layout_marginTop="@dimen/separador_largo"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcionI">
+
+        <EditText
+            android:id="@+id/edtCantidadI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/cantidad"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/texto_grande"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtUnidadI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/separador_corto"
+            android:layout_marginLeft="@dimen/separador_corto"
+            android:hint="@string/unidad"
+            android:textSize="@dimen/texto_grande"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/edtCantidadI"
+            app:layout_constraintStart_toEndOf="@+id/edtCantidadI"
+            app:layout_constraintTop_toTopOf="@+id/edtCantidadI" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/btnGuardarI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/separador_largo"
+        android:src="@drawable/ic_save_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnListaI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/separador_largo"
+        android:layout_marginRight="@dimen/separador_largo"
+        android:clickable="true"
+        android:src="@drawable/ic_paste_search_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnGuardarI" />
 </androidx.constraintlayout.widget.ConstraintLayout>

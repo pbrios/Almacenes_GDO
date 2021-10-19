@@ -21,4 +21,8 @@
     <string name="unidad">Unidad</string>
     <string name="tipo_busqueda">Busqueda por descripcion</string>
 
+    <!-- Texto Inventario -->
+    <string name="estante">Estante</string>
+    <string name="servername">http://www.distribuciongdo.site/conexiones/</string>
+
 </resources>
