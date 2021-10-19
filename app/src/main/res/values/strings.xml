@@ -20,6 +20,7 @@
     <string name="cantidad">Cantidad</string>
     <string name="unidad">Unidad</string>
     <string name="tipo_busqueda">Busqueda por descripcion</string>
+    <string name="seleccionar_producto">Seleccionar Producto</string>
 
     <!-- Texto Inventario -->
     <string name="estante">Estante</string>
