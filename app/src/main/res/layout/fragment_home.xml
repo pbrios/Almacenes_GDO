@@ -69,12 +69,12 @@
             android:text="@string/almacen_destino"
             android:textSize="@dimen/texto_grande"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/spAlmacenD"
+            app:layout_constraintBottom_toBottomOf="@+id/spAlmacenDT"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/spAlmacenD" />
+            app:layout_constraintTop_toTopOf="@+id/spAlmacenDT" />
 
         <Spinner
-            android:id="@+id/spAlmacenD"
+            android:id="@+id/spAlmacenDT"
             android:layout_width="@dimen/spinners_dimen"
             android:layout_height="@dimen/spinner_ancho"
             app:layout_constraintEnd_toEndOf="parent"

@@ -9,12 +9,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentResultListener;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -35,6 +35,8 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
     private String servidor;
     private ImageButton btnCamara, btnBusqueda;
     private CheckBox chTipoBusqueda;
+    private ProductosData productosData = new ProductosData();
+    private Productos producto;
 
     private void inicializa(View v){
         servidor = getString(R.string.servername);
@@ -46,6 +48,19 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
 
         btnBusqueda.setOnClickListener(this);
         btnCamara.setOnClickListener(this);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                producto= (Productos) bundle.getSerializable("bundleKey2");
+                cargaCampos(producto);
+                //buscarProducto(producto.getCodigo());
+            }
+        });
     }
 
     @Nullable
@@ -62,7 +77,7 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
             public void onResponse(JSONArray response) {
                 productos = null;
                 productos = gson.fromJson(response.toString(), Productos[].class);
-                cargaCampos(productos);
+                cargaCampos(productos[0]);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -79,10 +94,10 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
         edtCodigo.requestFocus();
     }
 
-    private void cargaCampos(Productos[] producto){
+    private void cargaCampos(Productos producto){
         limpiaCampos();
         Bundle result = new Bundle();
-        result.putSerializable("bundleKey",producto[0]);
+        result.putSerializable("bundleKey",producto);
         getParentFragmentManager().setFragmentResult("requestKey", result);
     }
 
@@ -91,9 +106,14 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
             if(!chTipoBusqueda.isChecked())
                 buscarProducto(edtCodigo.getText().toString());
             else
-                Toast.makeText(getContext(), "Seleccionado", Toast.LENGTH_LONG).show();
+                busquedaTexto(edtCodigo.getText().toString());
         else
             Toast.makeText(getContext(), "Favor de indicar el producto a buscar", Toast.LENGTH_LONG).show();
+    }
+
+    private void busquedaTexto(String codigo){
+        productosData.setBusqueda(codigo);
+        productosData.show(getChildFragmentManager(), "sdasda");
     }
 
     public void escanear(){
@@ -129,7 +149,7 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
                     realizarBusqueda();
                 break;
             case R.id.btnCamara:
-                escanear();
+                    escanear();
                 break;
             default:
                 break;
