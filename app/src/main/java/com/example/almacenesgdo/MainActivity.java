@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         servidor = getString(R.string.servername);
         almacenesArrayList = new ArrayList<Almacenes>();
+        listaAlmacenes();
     }
 
     private void validaUsuario(String url){
@@ -73,11 +74,9 @@ public class MainActivity extends AppCompatActivity {
                 if(!response.isEmpty()){
                     persona = gson.fromJson(response, Persona[].class);
                     datosPersona = persona[0];
-                    listaAlmacenes();
                     Intent intent = new Intent(getApplicationContext(), Menu.class);
                     intent.putExtra("usuario",datosPersona);
-                    //intent.putExtra("almacenes", almacenesArrayList);
-                    Toast.makeText(getApplicationContext(), almacenesArrayList.get(0).getAlmacen(), Toast.LENGTH_LONG).show();
+                    intent.putExtra("almacenes", almacenesArrayList);
                     startActivity(intent);
                     btnLogin.setEnabled(true);
                 }else{
@@ -104,13 +103,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void listaAlmacenes(){
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://distribuciongdo.site/conexiones/listaAlmacenes.php?almacenU="+"1", new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest("http://distribuciongdo.site/conexiones/listaAlmacenes.php?almacenU="+"2", new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 responseAlmacenes = null;
                 responseAlmacenes = gson.fromJson(response.toString(), Almacenes[].class);
                 almacenesArrayList.addAll(Arrays.asList(responseAlmacenes));
-                //Toast.makeText(getApplicationContext(), almacenesArrayList.get(0).getAlmacen(), Toast.LENGTH_LONG).show();
             }
         }, new Response.ErrorListener() {
             @Override

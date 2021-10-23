@@ -40,12 +40,10 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
 
     private void inicializa(View v){
         servidor = getString(R.string.servername);
-
         edtCodigo = v.findViewById(R.id.edtCodigo);
         btnBusqueda = v.findViewById(R.id.btnBusqueda);
         btnCamara = v.findViewById(R.id.btnCamara);
         chTipoBusqueda = v.findViewById(R.id.chTipoBusqueda);
-
         btnBusqueda.setOnClickListener(this);
         btnCamara.setOnClickListener(this);
     }
@@ -58,7 +56,6 @@ public class BusquedaFragment extends Fragment implements View.OnClickListener{
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
                 producto= (Productos) bundle.getSerializable("bundleKey2");
                 cargaCampos(producto);
-                //buscarProducto(producto.getCodigo());
             }
         });
     }

@@ -21,6 +21,7 @@
     <string name="unidad">Unidad</string>
     <string name="tipo_busqueda">Busqueda por descripcion</string>
     <string name="seleccionar_producto">Seleccionar Producto</string>
+    <string name="movimientos_producto">Movimientos Productos</string>
 
     <!-- Texto Inventario -->
     <string name="estante">Estante</string>
